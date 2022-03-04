@@ -17,7 +17,7 @@ vector<long> criba(int n){
 		bool isPrime = true;
 		for (long j = 1; prime[j] * prime[j] <= i; j++){
 			if (i % prime[j] == 0){
-				isPrime = true;
+				isPrime = false;
 				break;
 			}
 		}
@@ -32,17 +32,12 @@ int main() {
 	prime = criba(n);
 
 	int cases;
-	long value;
+	long long value;
 	cin >> cases;
 
 	for (int i = 0; i<cases; i++){
 		cin >> value;
 		cout << ((binary_search(prime.begin(), prime.end(), sqrt(value))) ? "YES\n" : "NO\n");
-		
-	
-		// for (long i = 0; i<500000; i++){
-		// 	cout << prime[i] << "\n";
-		// }
 	}
 	
 	return 0;
